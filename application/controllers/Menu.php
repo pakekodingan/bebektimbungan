@@ -23,7 +23,7 @@ class Menu extends CI_Controller {
 			foreach ($menuKategori as $key => $valMenuKategori) {
 				$arrDataMenu[$valKategori['KdSubKategori']][] = array(
 					'PCode' => $valMenuKategori['PCode'],
-					'NamaLengkap' => $valMenuKategori['NamaLengkap'],
+					'NamaLengkap' => $valMenuKategori['NamaLengkap'],	
 					'Deskripsi' => $valMenuKategori['Deskripsi'],
 					'Harga1c' => $valMenuKategori['Harga1c'],
 					'KdSubKategori' => $valMenuKategori['KdSubKategori'],
@@ -106,10 +106,12 @@ class Menu extends CI_Controller {
 		} else {
 			// hapus barcode
 			$arrOrderHeader = $this->db->get_where('order_temp', array('KdTable' => $KdTable, 'Status' => '0'))->row();
-			$QRCode2 = $arrOrderHeader->QRCode2;
-			if (!empty($QRCode2)) {
-				if (unlink('assets/images/QRCodeOrder/' . $QRCode2)) {
-					$this->db->update('order_temp', array('QRCode2' => ''), array('KdTable' => $KdTable, 'Status' => '0'));
+			if(!empty($arrOrderHeader)){
+				$QRCode2 = $arrOrderHeader->QRCode2;
+				if (!empty($QRCode2)) {
+					if (unlink('assets/images/QRCodeOrder/' . $QRCode2)) {
+						$this->db->update('order_temp', array('QRCode2' => ''), array('KdTable' => $KdTable, 'Status' => '0'));
+					}
 				}
 			}
 		}
@@ -177,6 +179,20 @@ class Menu extends CI_Controller {
 		$updateDetail = $this->db->update('order_detail_temp', array('StatusDetail' => '1'));
 
 		if ($updateDetail == TRUE) {
+			$return = "success";
+		} else {
+			$return = "failed";
+		}
+
+		echo json_encode(array('message' => $return));
+
+	}
+
+	public function clearTable(){
+		$KdTable = $this->input->post('KdTable');
+		$this->db->where(array('KdTable' => $KdTable, 'Status' => '0'));
+		$updateOrder = $this->db->update('order_temp', array('Status' => '2'));
+		if ($updateOrder == TRUE) {
 			$return = "success";
 		} else {
 			$return = "failed";

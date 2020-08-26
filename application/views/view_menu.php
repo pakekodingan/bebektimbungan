@@ -49,6 +49,7 @@
                                     <ul>
                                         <li><a href="javascript:void(0)" onclick="viewMenu()">MENU</a></li>
                                         <li><a href="javascript:void(0)" onclick="viewPesanan()">PESANAN</a></li>
+                                        <li><a href="javascript:void(0)" onclick="clearTable()">CLEAR TABLE</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -194,7 +195,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <h6>ITEM</h6>
+                            <h6>ITEM PESANAN</h6>
                         </div>
                     </div>
                     <div class="row" id="fix-pesanan">
@@ -927,6 +928,48 @@
                     getPesananFix();
                     cron_job1();
                 }, 5000);
+            }
+
+            function clearTable(KdTable){
+                var KdTable = $("#kode-table").val();
+                var site_url = $("#site-url").val();
+                $.ajax({
+                    url  : site_url +"/menu/clearTable",
+                    type : "POST",
+                    data : {KdTable:KdTable},
+                    success : function(response){
+                        res = JSON.parse(response);
+
+                        if(res.message == 'success'){
+                            $.toast({
+                                heading: 'Success.',
+                                position: 'top-center',
+                                loader: false,
+                                stack: false
+                            });
+
+                            $("#btn-pesanan").html('');
+
+                            getPesanan();
+                            getPesananFix();
+                        }else{
+                            $.toast({
+                                heading: 'Internet No Connection.',
+                                position: 'top-center',
+                                loader: false,
+                                stack: false
+                            });
+                        }
+                    },
+                    error : function(e){
+                        $.toast({
+                            heading: 'Internet No Connection.',
+                            position: 'top-center',
+                            loader: false,
+                            stack: false
+                        });
+                    }
+                });
             }
         </script>
     </body>
