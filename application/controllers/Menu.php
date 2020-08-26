@@ -48,7 +48,7 @@ class Menu extends CI_Controller {
 
 		$cekOrderHeader = $this->db->get_where('order_temp', array('KdTable' => $KdTable, 'Status' => '0'))->row();
 		if (empty($cekOrderHeader)) {
-			$IdOrder = date('Ymdhis');
+			$IdOrder = '7'.date('Ymdhis');
 			$tgl = date('Y-m-d');
 			$waktu = date('H:i:s');
 			$insertOrder = $this->db->insert('order_temp', array('IdOrder'=>$IdOrder,'KdTable' => $KdTable, 'Status' => '0','Tanggal'=>$tgl,'Waktu'=>$waktu));
