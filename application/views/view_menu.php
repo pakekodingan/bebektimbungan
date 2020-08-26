@@ -74,6 +74,7 @@
                                 <ul class="menu-overflow">
                                     <li><a href="javascript:void(0)" onclick="viewMenu()"> MENU </a></li>
                                     <!-- <li><a href="javascript:void(0)" onclick="viewPesanan()"> PESANAN </a></li> -->
+                                    <li><a href="javascript:void(0)" onclick="clearTable()"> CLEAR TABLE </a></li>
                                 </ul>
                             </nav>
                         </div>
