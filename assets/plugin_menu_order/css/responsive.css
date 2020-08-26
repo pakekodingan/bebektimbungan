@@ -359,7 +359,7 @@
         padding-bottom: 15px;
     }
     .mobile-menu .mean-nav ul.menu-overflow {
-        height: 70px;
+        height: 100px;
         margin-top: 0;
         overflow-y: auto;
     }
