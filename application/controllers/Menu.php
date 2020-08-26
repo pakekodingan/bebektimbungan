@@ -193,6 +193,9 @@ class Menu extends CI_Controller {
 		$this->db->where(array('KdTable' => $KdTable, 'Status' => '0'));
 		$updateOrder = $this->db->update('order_temp', array('Status' => '2'));
 		if ($updateOrder == TRUE) {
+			$this->db->where(array('KdTable' => $KdTable, 'Status' => '0'));
+			$this->db->update('order_detail_temp', array('StatusDetail' => '2'));
+
 			$return = "success";
 		} else {
 			$return = "failed";
