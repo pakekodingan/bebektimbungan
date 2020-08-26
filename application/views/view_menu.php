@@ -648,7 +648,7 @@
                                 $("#QRCode1").html('<div class="col-lg-12"><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode1+'"  style="width:200px;"></div>');
                                 $("#nama-kustomer").html(res.data[0].NamaCustomer);
                                 $("#NamaKustomer").val(res.data[0].NamaCustomer);
-                                $("#lable-tambahan-item").html('<div class="col-lg-6"><h6>ITEM TAMBAHAN</H6></div>');
+                                $("#lable-tambahan-item").html('<div class="col-lg-6"><h6>ITEM PENDING</H6></div>');
                             }else{
                                 $("#fix-pesanan").html('');
                                 $("#QRCode1").html('');
