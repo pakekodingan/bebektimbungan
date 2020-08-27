@@ -100,7 +100,7 @@ class Menu extends CI_Controller {
 			$dataQRCodeHeader = $ArrPesanan[0]['IdOrder'] . "*" .$ArrPesanan[0]['KdTable'] . "*" .$ArrPesanan[0]['Tanggal'] . "*" .$ArrPesanan[0]['Waktu'] . "***";  
 			$dataQRCodeDetail = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
+				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['PCode']. "*". $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 
 			$dataQRCode = substr($dataQRCodeHeader.$dataQRCodeDetail,0,-2);
@@ -134,7 +134,7 @@ class Menu extends CI_Controller {
 			$dataQRCodeHeader = $ArrPesanan[0]['IdOrder'] . "*" .$ArrPesanan[0]['KdTable'] . "*" .$ArrPesanan[0]['Tanggal'] . "*" .$ArrPesanan[0]['Waktu'] . "***";  
 			$dataQRCodeDetail = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
+				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['PCode']. "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 			$dataQRCode = substr($dataQRCodeHeader.$dataQRCodeDetail,0,-2);
 			$namafile1 = $ArrPesanan[0]['IdOrder'] . "-1";
