@@ -103,7 +103,7 @@ class Menu extends CI_Controller {
 				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 
-			$dataQRCode = $dataQRCodeHeader.$dataQRCodeDetail;
+			$dataQRCode = substr($dataQRCodeHeader.$dataQRCodeDetail,0,-2);
 			$namafile2 = $ArrPesanan[0]['IdOrder'] . "-2";
 			$QCodeNameFile2 = $this->generateQRCode($dataQRCode, $namafile2);
 			$this->db->update('order_temp', array('QRCOde2' => $QCodeNameFile2), array('IdOrder' => $ArrPesanan[0]['IdOrder']));
@@ -136,7 +136,7 @@ class Menu extends CI_Controller {
 			foreach ($ArrPesanan as $key => $value) {
 				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
-			$dataQRCode = $dataQRCodeHeader.$dataQRCodeDetail;
+			$dataQRCode = substr($dataQRCodeHeader.$dataQRCodeDetail,0,-2);
 			$namafile1 = $ArrPesanan[0]['IdOrder'] . "-1";
 			$QCodeNameFile1 = $this->generateQRCode($dataQRCode, $namafile1);
 			$this->db->update('order_temp', array('QRCOde1' => $QCodeNameFile1), array('IdOrder' => $ArrPesanan[0]['IdOrder']));
