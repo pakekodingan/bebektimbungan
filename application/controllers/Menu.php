@@ -99,7 +99,7 @@ class Menu extends CI_Controller {
 		if (!empty($ArrPesanan)) {
 			$dataQRCode = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCode .= $value['KdTable'] . "*" . $value['PCode'] . "*" . $value['Qty'] . "*" . $value['Note'] . "**";
+				$dataQRCode .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 
 			$namafile2 = $ArrPesanan[0]['IdOrder'] . "-2";
@@ -131,7 +131,7 @@ class Menu extends CI_Controller {
 		if (!empty($ArrPesanan)) {
 			$dataQRCode = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCode .= $value['KdTable'] . "*" . $value['PCode'] . "*" . $value['Qty'] . "*" . $value['Note'] . "**";
+				$dataQRCode .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 
 			$namafile1 = $ArrPesanan[0]['IdOrder'] . "-1";
