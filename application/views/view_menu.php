@@ -38,7 +38,7 @@
                     <div class="col-lg-3 col-md-4 col-5 col-sm-4">
                         <div class="logo">
                             <a href="index.html">
-                                <img alt="" src="<?php echo base_url(); ?>assets/plugin_menu_order/img/logo/logo-black.png">
+                                <!-- <img alt="" src="<?php echo base_url(); ?>assets/plugin_menu_order/img/logo-black.png"> -->
                             </a>
                         </div>
                     </div>
@@ -582,6 +582,7 @@
                                 });
 
                                 $("#item-pesanan").html(item_pesanan);
+                                $("#QRCode2").html('Loading...');
                                 $("#QRCode2").html('<div class="col-lg-12"><br><br><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode2+'" style="width:200px;"></div>');
                                 var btn_pesan = '<button  type="button"  class="btn btn-primary " style="width:100px;height:50px;" onclick="pesan()">PESAN</button>';
                                 $("#btn-pesanan").html(btn_pesan);
@@ -645,7 +646,7 @@
                                 });
 
                                 $("#fix-pesanan").html(item_pesanan);
-                                $("#QRCode1").html('<div class="col-lg-12"><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode1+'"  style="width:200px;"></div>');
+                                $("#QRCode1").html('<div class="col-lg-12"><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode1+'?v='+ new Date().getTime()+'"  style="width:200px;"></div>');
                                 $("#nama-kustomer").html(res.data[0].NamaCustomer);
                                 $("#NamaKustomer").val(res.data[0].NamaCustomer);
                                 $("#lable-tambahan-item").html('<div class="col-lg-6"><h6>ITEM PENDING</H6></div>');
@@ -914,22 +915,22 @@
                 });
             }
 
-            function cron_job1(){
+            // function cron_job1(){
 
-                setTimeout(function(){
-                    getPesanan();
-                    getPesananFix();
-                    cron_job2();
-                }, 5000);
-            }
+            //     setTimeout(function(){
+            //         getPesanan();
+            //         getPesananFix();
+            //         cron_job2();
+            //     }, 5000);
+            // }
 
-            function cron_job2(){
-                setTimeout(function(){
-                    getPesanan();
-                    getPesananFix();
-                    cron_job1();
-                }, 5000);
-            }
+            // function cron_job2(){
+            //     setTimeout(function(){
+            //         getPesanan();
+            //         getPesananFix();
+            //         cron_job1();
+            //     }, 5000);
+            // }
 
             function clearTable(KdTable){
                 var KdTable = $("#kode-table").val();
