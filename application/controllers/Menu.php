@@ -97,11 +97,13 @@ class Menu extends CI_Controller {
 
 		$QCodeNameFile2 = '';
 		if (!empty($ArrPesanan)) {
-			$dataQRCode = '';
+			$dataQRCodeHeader = $ArrPesanan[0]['IdOrder'] . "*" .$ArrPesanan[0]['KdTable'] . "*" .$ArrPesanan[0]['Tanggal'] . "*" .$ArrPesanan[0]['Waktu'] . "***";  
+			$dataQRCodeDetail = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCode .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
+				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
 
+			$dataQRCode = $dataQRCodeHeader.$dataQRCodeDetail;
 			$namafile2 = $ArrPesanan[0]['IdOrder'] . "-2";
 			$QCodeNameFile2 = $this->generateQRCode($dataQRCode, $namafile2);
 			$this->db->update('order_temp', array('QRCOde2' => $QCodeNameFile2), array('IdOrder' => $ArrPesanan[0]['IdOrder']));
@@ -129,11 +131,12 @@ class Menu extends CI_Controller {
 
 		$QCodeNameFile1 = '';
 		if (!empty($ArrPesanan)) {
-			$dataQRCode = '';
+			$dataQRCodeHeader = $ArrPesanan[0]['IdOrder'] . "*" .$ArrPesanan[0]['KdTable'] . "*" .$ArrPesanan[0]['Tanggal'] . "*" .$ArrPesanan[0]['Waktu'] . "***";  
+			$dataQRCodeDetail = '';
 			foreach ($ArrPesanan as $key => $value) {
-				$dataQRCode .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
+				$dataQRCodeDetail .= $value['IdOrder'] . "*" .$value['KdTable'] . "*" . $value['IdOrderDetailTemp'] . "*" . $value['Qty'] . "*" . $value['Note'] . "##";
 			}
-
+			$dataQRCode = $dataQRCodeHeader.$dataQRCodeDetail;
 			$namafile1 = $ArrPesanan[0]['IdOrder'] . "-1";
 			$QCodeNameFile1 = $this->generateQRCode($dataQRCode, $namafile1);
 			$this->db->update('order_temp', array('QRCOde1' => $QCodeNameFile1), array('IdOrder' => $ArrPesanan[0]['IdOrder']));

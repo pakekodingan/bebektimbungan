@@ -84,10 +84,12 @@ class Menu_model extends CI_Model {
 		$this->db->select(
 			'order_detail_temp.IdOrderDetailTemp,
 			order_temp.IdOrder,
+			order_temp.Tanggal,
+			order_temp.Waktu,
 			order_detail_temp.KdTable,
 			order_detail_temp.PCode,
 			order_detail_temp.Qty,
-			order_detail_temp.Note,
+			IF(order_detail_temp.Note <> "",order_detail_temp.Note,"-") AS Note,
 			masterbarang_touch.NamaLengkap,
 			masterbarang_touch.Harga1c'
 		);
@@ -110,10 +112,12 @@ class Menu_model extends CI_Model {
 			'order_temp.NamaCustomer,
 			order_detail_temp.IdOrderDetailTemp,
 			order_temp.IdOrder,
+			order_temp.Tanggal,
+			order_temp.Waktu,
 			order_detail_temp.KdTable,
 			order_detail_temp.PCode,
 			SUM(order_detail_temp.Qty) AS Qty,
-			order_detail_temp.Note,
+			IF(order_detail_temp.Note <> "",order_detail_temp.Note,"-") AS Note,
 			masterbarang_touch.NamaLengkap,
 			masterbarang_touch.Harga1c'
 		);

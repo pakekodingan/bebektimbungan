@@ -678,7 +678,7 @@
             function editCart(IdOrderDetailTemp){
                 var itemNameOrder = $("#itemNameOrder-"+IdOrderDetailTemp).val();
                 var qtyOrder = $("#qtyOrder-"+IdOrderDetailTemp).val();
-                var noteOrder = $("#noteOrder-"+IdOrderDetailTemp).val();
+                var noteOrder = ($("#noteOrder-"+IdOrderDetailTemp).val() != '-')? $("#noteOrder-"+IdOrderDetailTemp).val() : "";
                 var KdTable = $("#kode-table").val();
                 var site_url = $("#site-url").val();
 
