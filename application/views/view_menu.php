@@ -582,7 +582,7 @@
                                 });
 
                                 $("#item-pesanan").html(item_pesanan);
-                                $("#QRCode2").html('<div class="col-lg-12"><br><br><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode2+'?v='+ new Date().getTime()+'" style="width:200px;"></div>');
+                                // $("#QRCode2").html('<div class="col-lg-12"><br><br><img src="'+base_url+'assets/images/QRCodeOrder/'+res.QRCode2+'?v='+ new Date().getTime()+'" style="width:200px;"></div>');
                                 var btn_pesan = '<button  type="button"  class="btn btn-primary " style="width:100px;height:50px;" onclick="pesan()">PESAN</button>';
                                 $("#btn-pesanan").html(btn_pesan);
 
