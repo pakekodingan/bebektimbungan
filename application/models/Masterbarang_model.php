@@ -12,7 +12,7 @@ class Masterbarang_model extends CI_Model {
     {
         parent::__construct();
         $this->load->database();
-        $this->DBTimbungan = $this->load->database('DBTimbungan',TRUE);
+        // $this->DBTimbungan = $this->load->database('DBTimbungan',TRUE);
     }
  
     private function _get_datatables_query()
