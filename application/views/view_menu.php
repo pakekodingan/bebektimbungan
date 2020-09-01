@@ -116,7 +116,7 @@
                                         <div class="col-lg-6">
                                             <div class="single-menu-product mb-30"  onclick="addCart('<?php echo $valMenu['PCode']; ?>')">
                                                 <div class="menu-product-img">
-                                                    <img alt="" src="<?php echo base_url(); ?>assets/images/product/empty.png">
+                                                    <img alt="" src="<?php echo base_url(); ?>assets/images/product/<?php echo $valMenu['Image']; ?>">
                                                 </div>
                                                 <div class="menu-product-content">
                                                     <input type="hidden" id="PCode-<?php echo $valMenu['PCode']; ?>" value="<?php echo $valMenu['PCode']; ?>">
@@ -134,7 +134,6 @@
                                                     </div>
                                                     <p><?php echo $valMenu['Deskripsi']; ?></p>
                                                     <p class="label-ppn">*harga belum termasuk PPN & Service Charge.</p>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +147,7 @@
                                         <div class="col-lg-6" >
                                             <div class="single-menu-product mb-30" onclick="addCart('<?php echo $valMenu['PCode']; ?>')">
                                                 <div class="menu-product-img">
-                                                    <img alt="" src="<?php echo base_url(); ?>assets/images/product/empty.png">
+                                                    <img alt="" src="<?php echo base_url(); ?>assets/images/product/<?php echo $valMenu['Image']; ?>">
                                                 </div>
                                                 <div class="menu-product-content">
                                                     <input type="hidden" id="PCode-<?php echo $valMenu['PCode']; ?>" value="<?php echo $valMenu['PCode']; ?>">
@@ -391,7 +390,7 @@
                     });
                 });
 
-                cron_job1();
+                // cron_job1();
 
             });
 

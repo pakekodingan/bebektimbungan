@@ -27,9 +27,11 @@ class Menu extends CI_Controller {
 					'Deskripsi' => $valMenuKategori['Deskripsi'],
 					'Harga1c' => $valMenuKategori['Harga1c'],
 					'KdSubKategori' => $valMenuKategori['KdSubKategori'],
+					'Image' => $valMenuKategori['Image'],
 				);
 			}
 		}
+
 		$arrQtyOrder = $this->menu_model->totalQtyOrder($KdTable)->row();
 		$totalQtyOrder = $arrQtyOrder->Qty;
 		$data['kategori'] = $arrKategori;

@@ -22,7 +22,8 @@ class Menu_model extends CI_Model {
 			masterbarang_touch.KdSubKategori,
 			masterbarang_touch.Harga1c,
 			masterbarang.Service_charge,
-			masterbarang.PPN'
+			masterbarang.PPN,
+			masterbarang.Image'
 		);
 		$this->db->from('masterbarang_touch');
 		$this->db->join('masterbarang', 'masterbarang_touch.PCode = masterbarang.PCode', 'INNER');
@@ -39,7 +40,8 @@ class Menu_model extends CI_Model {
 			masterbarang_touch.KdSubKategori,
 			masterbarang_touch.Harga1c,
 			masterbarang.Service_charge,
-			masterbarang.PPN'
+			masterbarang.PPN,
+			masterbarang.Image'
 		);
 		$this->db->from('masterbarang_touch');
 		$this->db->join('masterbarang', 'masterbarang_touch.PCode = masterbarang.PCode');
